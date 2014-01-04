@@ -21,7 +21,7 @@ if (typeof since === 'undefined') {
     json: true
   }, function(e, r, o) {
     if (!r) {
-      return console.error('ERROR:', 'could not connect to elasticsearch (' + argv.es + ')');
+      return console.error('ERROR:', 'could not connect to elasticsearch (' + argv.es + ')', o);
     }
 
     if (!e && o && o._source && o._source.value) {
