@@ -27,7 +27,7 @@
     </property_group>
     <property_group name='config' type='application'>
       <propval name='es_url' type='astring' value='http://localhost:9200/npm'/>
-      <propval name='couch_url' type='astring' value='https://skimdb.npmjs.com/registry'/>
+      <propval name='couch_url' type='astring' value='https://aws-west-4.skimdb.internal.npmjs.com/registry'/>
     </property_group>
     <stability value='Evolving'/>
     <template>
