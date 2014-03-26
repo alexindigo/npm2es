@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
++process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 var argv = require('optimist').argv;
 if (!argv.couch || !argv.es) {
   return console.log('USAGE: npm2es --couch="<url to couch>" --es="<url to elasticsearch>" [--interval=1000]');
