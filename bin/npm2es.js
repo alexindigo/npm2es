@@ -108,7 +108,7 @@ function beginFollowing() {
 
 
 
-    // console.log('BEGIN FOLLOWING @', since);
+    console.log('BEGIN FOLLOWING @', since);
     var last = since;
     follow({
       db: argv.couch,
@@ -141,7 +141,7 @@ function beginFollowing() {
             return console.error('ERROR', 'could not save latest sequence');
           }
 
-          // console.log('SYNC', last);
+          console.log('SYNC', last);
         });
       }
 
@@ -150,7 +150,7 @@ function beginFollowing() {
         this.pause()
         request.del(argv.es + '/package/' + change.id, function(err) {
           if (!err) {
-            // console.log('DELETED', change.id);
+            console.log('DELETED', change.id);
           } else {
             console.error('ERROR', 'could not delete document', err);
           }
@@ -163,15 +163,15 @@ function beginFollowing() {
         var p = normalize(change.doc);
 
         if (!p || !p.name) {
-          // console.log('SKIP: ' + change.doc._id);
+          console.log('SKIP: ' + change.doc._id);
           return;
         }
 
         p.stars = p && p.users ? p.users.length : 0;
 
         request({
-          uri: 'https://api.npmjs.org/downloads/point/last-day/' + p.name, 
-          json: true, 
+          uri: 'https://api.npmjs.org/downloads/point/last-day/' + p.name,
+          json: true,
           method: 'GET'
         }, function (e, r, bd) {
           if (e || bd.error) {
@@ -179,11 +179,11 @@ function beginFollowing() {
           } else {
             p.dlDay = bd.downloads;
           }
-        
+
           // get download counts for the last week
           request({
-            uri: 'https://api.npmjs.org/downloads/point/last-week/' + p.name, 
-            json: true, 
+            uri: 'https://api.npmjs.org/downloads/point/last-week/' + p.name,
+            json: true,
             method: 'GET'
           }, function (e, r, bw) {
             if (e || bw.error) {
@@ -218,7 +218,7 @@ function beginFollowing() {
                 // 2) for the tarball
                 // skip a re-index for #2
                 if (!e && obj && obj._source && obj._source.version === p.version) {
-                  // console.log('SKIP VERSION:', change.doc._id, p.version);
+                  console.log('SKIP VERSION:', change.doc._id, p.version);
                   that.resume();
                 } else {
                   obj = obj || {};
@@ -244,7 +244,7 @@ function beginFollowing() {
                     } else if (b.error) {
                       console.error(b.error, p);
                     } else {
-                      // console.log('ADD', p.name, r.statusCode);
+                      console.log('ADD', p.name, r.statusCode);
                     }
                     that.resume();
                   });
@@ -257,4 +257,3 @@ function beginFollowing() {
     });
   });
 }
-
