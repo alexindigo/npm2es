@@ -162,8 +162,8 @@ function _createThrottlingQueue(last, concurrency) {
         }
       }, function(e, r, o) {
         if (e) {
-          callback();
-          return console.error('ERROR', 'could not save latest sequence');
+          console.error('ERROR', 'could not save latest sequence', e.message);
+          return callback();
         }
 
         console.log('SYNC', last);
