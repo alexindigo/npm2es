@@ -133,7 +133,7 @@ function beginFollowing() {
         return console.log('SKIP', change);
       }
 
-      // only allow 1000 items into
+      // only allow N items into
       // the queue at the same time.
       // otherwise a backlog can be
       // created which fills memory.
