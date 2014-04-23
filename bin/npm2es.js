@@ -127,8 +127,6 @@ function beginFollowing() {
         return;
       }
 
-      var that = this;
-
       if (!change.id) {
         return console.log('SKIP', change);
       }
