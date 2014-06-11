@@ -1,5 +1,0 @@
-.seq
-support/elasticsearch-0.20.6/data
-support/elasticsearch-0.20.6/logs
-support/couch/tmp/couch.log
-support/couch/erl_crash.dump
