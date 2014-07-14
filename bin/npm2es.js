@@ -246,6 +246,13 @@ function _createThrottlingQueue(last, concurrency) {
                 callback();
               } else {
                 obj = obj || {};
+                //get numberof dev 
+                if (p.dependencies){ 
+                  p.numberOfDependencies = p.dependencies.length;
+                }
+                if (p.devDependencies){ 
+                  p.numberOfDevDependencies = p.devDependencies.length;
+                }
                 if (p.time) {
                   delete p.time;
                 }
