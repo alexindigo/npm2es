@@ -203,7 +203,6 @@ function _createThrottlingQueue(last, concurrency) {
           console.error(e ? e.message : bd.error, p);
         } else {
           p.dlDay = bd.downloads;
-          console.log('yooooooooo ' + p.dlDay);
         }
 
         // get download counts for the last week
