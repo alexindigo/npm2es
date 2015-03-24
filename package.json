@@ -1,17 +1,16 @@
 {
-  "name": "npm2es",
-  "version": "0.4.1",
-  "description": "push npm package metadata into elasticsearch for querying",
-  "main": "index.js",
+  "name": "npm2es4newww",
+  "version": "0.4.1-local-1",
+  "description": "push npm package metadata into elasticsearch for querying (based on solids/npm2es)",
   "scripts": {
     "test": "node test/test.js"
   },
   "bin": {
-    "npm2es": "bin/npm2es.js"
+    "npm2es4newww": "bin/npm2es4newww.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/solids/npm2es.git"
+    "url": "git://github.com/alexindigo/npm2es4newww.git"
   },
   "keywords": [
     "npm",
@@ -20,7 +19,7 @@
     "search",
     "packages"
   ],
-  "author": "Elijah Insua <tmpvar@gmail.com>",
+  "author": "Alex Indigo <iam@alexindigo.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
