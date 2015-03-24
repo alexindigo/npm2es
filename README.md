@@ -1,22 +1,22 @@
-# npm2es
+# npm2es4newww
 
 push npm package metadata into elasticsearch for querying
 
 # install
 
-`npm install -g npm2es`
+`npm install -g npm2es4newww`
 
 # use
 
-`USAGE: npm2es --couch="http://host:port/db" --es="http://host:port/index"`
+`USAGE: npm2es4newww --couch="http://host:port/db" --es="http://host:port/index"`
 
 ## optional
 
-  `npm2es` also takes a `--since=<seq number>` command line argument incase you want to skip a full re-index
+  `npm2es4newww` also takes a `--since=<seq number>` command line argument incase you want to skip a full re-index
 
 ## example
 
-`npm2es --couch="http://localhost:5984/registry" --es="http://localhost:9200/npm"`
+`npm2es4newww --couch="http://localhost:5984/registry" --es="http://localhost:9200/npm"`
 
 This will attach to the provided couchdb's `_changes` feed and automatically put every
 package into elasticsearch for indexing.  This script will run for as long as you let it, automatically applying updates to the search index.
