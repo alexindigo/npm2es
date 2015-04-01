@@ -206,7 +206,7 @@ function _createThrottlingQueue(last, concurrency) {
           console.log('SKIP VERSION:', change.doc._id, p.version, 'queue backlog = ', queue.length());
           callback();
         } else {
-          obj = obj ? obj._source : {};
+          obj = (obj ? obj._source : {}) || {};
 
           // populate stat fields
           p.dlDay = obj.dlDay || 0;
@@ -215,6 +215,9 @@ function _createThrottlingQueue(last, concurrency) {
 
           p.dlScore = p.dlMonth ? p.dlWeek / (p.dlMonth / 4) : 0;
 
+          // get owner domain
+          p.domain = change.doc.author && change.doc.author.email && change.doc.author.email.split('@')[1] || '';
+
           //get numberof dev
           if (p.dependencies){
             p.numberOfDependencies = p.dependencies.length;
@@ -222,6 +225,7 @@ function _createThrottlingQueue(last, concurrency) {
           if (p.devDependencies){
             p.numberOfDevDependencies = p.devDependencies.length;
           }
+
           if (p.time) {
             delete p.time;
           }
